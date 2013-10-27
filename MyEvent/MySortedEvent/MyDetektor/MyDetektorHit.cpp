@@ -1,0 +1,2 @@
+#include "MyDetektorHit.h"
+

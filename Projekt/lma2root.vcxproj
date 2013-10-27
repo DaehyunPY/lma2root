@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="AchimsSourceDebug|Win32">
+      <Configuration>AchimsSourceDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="AchimsSourceRelease|Win32">
+      <Configuration>AchimsSourceRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{624D824A-5AA3-422A-9DAB-5557E67A1DE2}</ProjectGuid>
+    <RootNamespace>agat32root</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Binaries\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(rootsys)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>w32pragma.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libCint.lib;libTree.lib;libCore.lib;libHist.lib;libGui.lib;libGraf.lib;libRIO.lib;libGpad.lib;resort64c.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)\..\Binaries\lma2root.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\MyDetektorHitSorter\AchimsRoutine;$(rootsys)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)lma2root.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(rootsys)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <ForcedIncludeFiles>w32pragma.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libCint.lib;libTree.lib;libCore.lib;libHist.lib;libGui.lib;libGraf.lib;libRIO.lib;libGpad.lib;resort64c.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)\..\Binaries\lma2root.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\MyDetektorHitSorter\AchimsRoutine;$(rootsys)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>$(rootsys)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_ACHIMSOURCE;NO_RESORT64C_DLL_IMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>w32pragma.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libCint.lib;libTree.lib;libCore.lib;libHist.lib;libGui.lib;libGraf.lib;libRIO.lib;libGpad.lib;libThread.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)\..\Binaries\lma2root.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(rootsys)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)lma2root.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(rootsys)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_ACHIMSOURCE;NO_RESORT64C_DLL_IMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>w32pragma.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libCint.lib;libTree.lib;libCore.lib;libHist.lib;libGui.lib;libGraf.lib;libRIO.lib;libGpad.lib;libThread.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)\..\Binaries\lma2root.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(rootsys)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\MySignalAnalyzer\baselineCorrection.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\helperfunctionsforDetSorter.cpp" />
+    <ClCompile Include="..\MySignalAnalyzer\helperfunctionsforSTDC.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\MyArchive\MyArchive.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MyChannelSection.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektor.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorHit.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorter.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchim.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchimHex.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchimQuad.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterHex.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterQuad.cpp" />
+    <ClCompile Include="..\MyDetektorHitSorter\MyDetektorHitSorterSimple.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorInfo.cpp" />
+    <ClCompile Include="..\MyEventViewer\MyEventViewer.cpp" />
+    <ClCompile Include="..\MyFileProcessor\MyFileProcessor.cpp" />
+    <ClCompile Include="..\MyRootManager\MyHistos.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyLayerProperty.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannel.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannelInfo.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalEvent.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalEventInfo.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MyPeak\MyPeak.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyPuls\MyPuls.cpp" />
+    <ClCompile Include="..\MyPulsHistoFiller\MyPulsHistoFiller.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyPunkt\MyPunkt.cpp" />
+    <ClCompile Include="..\MyRootManager\MyRootManager.cpp" />
+    <ClCompile Include="..\MySettings\MySettings.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannel.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannelInfo.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEvent.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEventInfo.cpp" />
+    <ClCompile Include="..\MySignalAnalyzer\MySignalAnalyzer.cpp" />
+    <ClCompile Include="..\MySignalAnalyzer\MySoftTDCCFD.cpp" />
+    <ClCompile Include="..\MySignalAnalyzer\MySoftTDCCoM.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MySortedEvent.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MySortedEventInfo.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyTimeRange.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MyVoltage\MyVoltage.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MyChannelSectionDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorHitDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyLayerPropertyDict.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannelDict.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannelInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalEventDict.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyOriginalEventInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MyPeak\MyPeakDict.cpp" />
+    <ClCompile Include="..\MyEvent\MyOriginalEvent\MyPuls\MyPulsDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyPunkt\MyPunktDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannelDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannelInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEventDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEventInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MySortedEventDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MySortedEventInfoDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySortedEvent\MyDetektor\MyTimeRangeDict.cpp" />
+    <ClCompile Include="..\MyEvent\MySignalAnalyzedEvent\MyVoltage\MyVoltageDict.cpp" />
+    <ClCompile Include="..\AchimsRoutineSources\double_array_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\gaussfit_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\hit_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\interpolate_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\nonlinearity_calibration_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\profile_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\scalefactors_calibration_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\sort_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\AchimsRoutineSources\sum_walk_calibration_class.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MySignalAnalyzer\baselineCorrection.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\helperfunctionsforDetSorter.h" />
+    <ClInclude Include="..\MySignalAnalyzer\helperfunctionsforSTDC.h" />
+    <ClInclude Include="..\MyArchive\MyArchive.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorter.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchim.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchimHex.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterAchimQuad.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterHex.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterQuad.h" />
+    <ClInclude Include="..\MyDetektorHitSorter\MyDetektorHitSorterSimple.h" />
+    <ClInclude Include="..\MyEventViewer\MyEventViewer.h" />
+    <ClInclude Include="..\MyFileProcessor\MyFileProcessor.h" />
+    <ClInclude Include="..\MyRootManager\MyHistos.h" />
+    <ClInclude Include="..\MyPulsHistoFiller\MyPulsHistoFiller.h" />
+    <ClInclude Include="..\MyRootManager\MyRootManager.h" />
+    <ClInclude Include="..\MySettings\MySettings.h" />
+    <ClInclude Include="..\MySignalAnalyzer\MySignalAnalyzer.h" />
+    <ClInclude Include="..\MySignalAnalyzer\MySoftTDC.h" />
+    <ClInclude Include="..\MySignalAnalyzer\MySoftTDCCFD.h" />
+    <ClInclude Include="..\MySignalAnalyzer\MySoftTDCCoM.h" />
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MyChannelSection.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektor.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorHit.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyDetektor\MyDetektorInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyDetektor\MyLayerProperty.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannel.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MyOriginalEvent\MyOriginalChannel\MyOriginalChannelInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MyOriginalEvent\MyOriginalEvent.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MyOriginalEvent\MyOriginalEventInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MyPeak\MyPeak.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MyOriginalEvent\MyPuls\MyPuls.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyPunkt\MyPunkt.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannel.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedChannel\MySignalAnalyzedChannelInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEvent.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MySignalAnalyzedEventInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MySortedEvent.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MySortedEventInfo.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySortedEvent\MyDetektor\MyTimeRange.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\MyEvent\MySignalAnalyzedEvent\MyVoltage\MyVoltage.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceDebug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='AchimsSourceRelease|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Dictionary for %(Filename)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ROOTSYS)\bin\rootcint -f "%(RootDir)%(Directory)%(Filename)Dict.cpp" -c "%(RootDir)%(Directory)%(Filename)%(Extension)+"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)\%(Filename)Dict.h;%(RootDir)%(Directory)\%(Filename)Dict.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuildStep Include="..\AchimsRoutineSources\resort64c.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
