@@ -72,6 +72,10 @@ void run(const bool verbose)
 			break;
 		}
 
+		//open log file//cannot put it on before "ChangeSettingsAndGetFileName(LMAFileName,set)"....
+		if (!fp.LogFileIsOpen()) fp.OpenLogFile(set);
+
+
 		//process file//
 		//if true is returned, 'q' has been pressed during the analysis, so quit here//
 		if (fp.ProcessFile(LMAFileName,set))
@@ -83,6 +87,9 @@ void run(const bool verbose)
 	//now write the calibration files, if requested//
 	if (static_cast<int>(set.GetValue("WriteCalibrationStuff",false)))
 		fp.WriteConfigureFiles();
+
+	//close log file//
+	fp.CloseLogFile();
 }
 
 

@@ -49,9 +49,16 @@ private:
 
 	const bool					fVerbose;
 
-	std::ofstream				fLog;		//[2013/10/28 Matsunami] Output a log file include lma file names and each first and last event IDs, etc.
-	const std::string			fLogFileName;	//[2013/10/28 Matsunami] File name of the log file.
-	const std::string			fLogDelimiter;	//[2013/10/28 Matsunami] Field delimiter of the log file.
+//[2013/10/28 Matsunami] log file
+private:
+	std::ofstream				fLog;					//Output a log file include lma file names and each first and last event IDs, etc.
+	TString						fLogFileName;			//File name of the log file.
+	static const std::string	fLogDelimiter;			//Field delimiter of the log file.
+
+public:
+	void						OpenLogFile(MySettings &set);	//fopen
+	void						CloseLogFile();					//fclose
+	bool						LogFileIsOpen();				//fstream::is_open
 };
 
 #endif

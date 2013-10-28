@@ -17,19 +17,23 @@ MyFileProcessor::~MyFileProcessor()
 	//std::cout << "done"<<std::endl;
 
 	// Close log file [2013/10/28 Matsunami]
-	if (fLog.is_open()) fLog.close();
+	CloseLogFile();
 }
 
 //_________________________________________________________________________________
-MyFileProcessor::MyFileProcessor(const bool v):fVerbose(v),fRm(v),
-	fLogFileName("log.txt"), fLogDelimiter("\t")
+MyFileProcessor::MyFileProcessor(const bool v):fVerbose(v),fRm(v)
 {
 	fOEp	= &fOE;
 	fSAEp	= &fSAE;
 	fSEp	= &fSE;
+}
 
+//________________________[2013/10/28 Matsunami] log file__________________________
+void MyFileProcessor::OpenLogFile(MySettings &set)
+{
 	// Open log file [2013/10/28 Matsunami]
-	fLog.open(fLogFileName, std::ios::out);
+	fLogFileName = set.GetString("LogFileName","log.txt");
+	fLog.open(fLogFileName.Data(), std::ios::out);
 	//if the file has not been opened give an error message and return false
 	if(!fLog.is_open())
 	{
@@ -46,6 +50,15 @@ MyFileProcessor::MyFileProcessor(const bool v):fVerbose(v),fRm(v),
 				<< "EventID_Last"		<<std::endl;
 	}
 }
+
+void MyFileProcessor::CloseLogFile()
+{
+	if (fLog.is_open()) fLog.close();
+}
+
+const std::string MyFileProcessor::fLogDelimiter = "\t";
+
+bool MyFileProcessor::LogFileIsOpen() {return fLog.is_open();}
 
 //_________________________________________________________________________________
 void MyFileProcessor::WriteConfigureFiles()
