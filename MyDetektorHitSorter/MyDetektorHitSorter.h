@@ -115,6 +115,10 @@ protected:
 	dVec		 w2d;					//Vector of the times of all Peaks
 	pVec		 mcpvec;				//Vector conatining all Peak with mcp
 	dVec		 mcpd;					//Vector of the times of all Peaks
+
+//[2013/10/28 Matsunami]
+public:
+	virtual int			GetNbrRecHits() {return -1;}
 };
 
 //the actual worker
@@ -134,6 +138,13 @@ public:
 private:
 	dhsVec				fDhs;
 	std::vector<int>	fSM;
+
+//[2013/10/28 Matsunami]
+private:
+	std::vector<int>	fNRecHitsVec;
+
+public:
+	std::vector<int>	GetNbrRecHitsVec() {return fNRecHitsVec;}
 };
 
 

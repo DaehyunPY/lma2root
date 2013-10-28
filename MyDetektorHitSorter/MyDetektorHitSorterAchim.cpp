@@ -44,8 +44,8 @@ void MyDetektorHitSorterAchim::SortWithAchimSorter()
 		std::cout << "Achims Sorter: "<<error_text<<std::endl;
 		exit(1);
 	}
-	//---Number of Hits---////motomura 2009/6/28
-	std::cout << "\t" << "Number of Hits : " << std::setw(3) << std::setfill(' ')<< fNRecHits;
+	//---Number of Hits---////motomura 2009/6/28 ////Matsunami 2013/10/28 comment out (move)
+	//std::cout << "\t" << "Number of Hits : " << std::setw(3) << std::setfill(' ')<< fNRecHits;
 
 }
 

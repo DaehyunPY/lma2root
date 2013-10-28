@@ -21,6 +21,10 @@ protected:
 	void FillHistosAfterShift(const MyDetektor&, MyHistos&);	
 	void CreateTDCArrays();
 	void Calibrate();
+
+//[2013/10/28 Matsunami]
+public:
+	int GetNbrRecHits() override {return fNRecHits;}
 };
 
 class MyDetektorHitSorterAchimQuadCalib : public MyDetektorHitSorterAchimQuad

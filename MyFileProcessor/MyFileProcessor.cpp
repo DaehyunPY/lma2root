@@ -72,6 +72,8 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 	size_t EventCounter=0;
 	size_t SkipEventCounter=0;
 
+	const size_t IntervalOfTerminalCounterUpdate = static_cast<size_t>(set.GetValue("IntervalOfTerminalCounterUpdate",1)); //[2013/10/28 Matsunami] Interval for updating event counter which is displayed on terminal.
+
 	//--do some output--//
 	std::cout <<"working on File: "<<fiName.Data()<<std::endl;
 
@@ -152,7 +154,7 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 
 		//---output event number---////motomura 2009/6/28
 
-		/*if (EventCounter % 100 == 0) */std::cout << "\r" << "Event Counter :"<< std::setw(5) << std::setfill(' ') << EventCounter+1;
+		if (EventCounter % IntervalOfTerminalCounterUpdate == 0) std::cout << "\r" << "Event Counter :"<< std::setw(5) << std::setfill(' ') << EventCounter+1;
 		//std::cout << "\r" << "EventID :"<< std::setw(10) << std::setfill(' ') << fOE.GetEventID();
 		//SelectEvent//
 		//if (fOE.GetEventID()!=1841952038) continue;
@@ -191,7 +193,13 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 
 		//--sort for detektorhits--//
 		fDhs.Sort(fSAE,fSE,fRm);
-
+		//[2013/10/28 Matsunami]
+		if (EventCounter % IntervalOfTerminalCounterUpdate == 0)
+		{
+			std::cout << "\t" << "Number of Hits : ";
+			for(size_t i=0; i<fDhs.GetNbrRecHitsVec().size(); i++)
+				std::cout << std::setw(3) << std::setfill(' ') << fDhs.GetNbrRecHitsVec().at(i);
+		}
 
 		//----- Clear unnecessary events-----////motomura 2009/6/28
 		if (ClearUnnecessaryChannel)

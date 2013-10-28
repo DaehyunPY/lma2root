@@ -31,5 +31,9 @@ protected:
 
 private:
 	bool							 fAlreadyInitialized;		//flag that shows if as->init() was already called
+
+//[2013/10/28 Matsunami]
+public:
+	int								 GetNbrRecHits()		 {return fNRecHits;}
 };
 #endif

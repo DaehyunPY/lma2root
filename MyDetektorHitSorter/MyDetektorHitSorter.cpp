@@ -27,8 +27,12 @@ MyDetektorHitSorter::~MyDetektorHitSorter()
 //______________________________________________initialization_____________________________________________________________________________________________________________
 void MyDetektorHitSorter::Sort(MySignalAnalyzedEvent &sae, MySortedEvent &se, MyHistos &rm)
 {
+	fNRecHitsVec.clear();
 	for (size_t i=0; i<fDhs.size();++i)
+	{
 		fDhs[i]->Sort(sae,se.GetDetektor(i),rm);
+		fNRecHitsVec.push_back(fDhs[i]->GetNbrRecHits());
+	}
 }
 
 //______________________________________________initialization_____________________________________________________________________________________________________________
