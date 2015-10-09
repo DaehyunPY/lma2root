@@ -217,9 +217,9 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 		//----- Clear unnecessary events-----////motomura 2009/6/28
 		if (ClearUnnecessaryChannel)
 		{
-			for (size_t i=0; i<8;++i) //clear all channel
+			for (size_t i=0; i<7;++i) //ch8
 				fOE.ClearChannel(i);
-			fOE.ClearChannel(8-1);
+			//fOE.ClearChannel(8-1);
 
 		}
 
