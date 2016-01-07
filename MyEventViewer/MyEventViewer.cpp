@@ -147,14 +147,15 @@ MyRawEventViewer::~MyRawEventViewer()
 	delete c;
 }
 //_________________________________________________________________________________
-void MyRawEventViewer::View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer&)
+void MyRawEventViewer::View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer&, bool blcorr)
 {
+	//std::cout << "with baseline correction:" << blcorr << std::endl;
 	if (oe.GetNbrBytes() == 1)
-		showEventImpl<char>(oe,sae);
-		//showEventImplBLCorr<char>(oe,sae);
+		if (blcorr) showEventImplBLCorr<char>(oe,sae);
+		else showEventImpl<char>(oe, sae);
 	if (oe.GetNbrBytes() == 2)
-		showEventImpl<short>(oe,sae);
-		//showEventImplBLCorr<short>(oe,sae);
+		if (blcorr) showEventImplBLCorr<short>(oe, sae);
+		else showEventImpl<short>(oe, sae);
 }
 //_______________________________________________________________________________________________________
 template <typename T>
@@ -230,7 +231,7 @@ void MyRawEventViewer::showEventImpl(const MyOriginalEvent &oe, const MySignalAn
 		//update canvas
 		c->cd(0);
 		gPad->Update();
-
+		std::cout << "Tag:" << oe.GetEventID() << std::endl;
 		//--wait for keystroke--//
 		while (!_kbhit())
 		{
@@ -317,7 +318,7 @@ void MyRawEventViewer::showEventImplBLCorr(const MyOriginalEvent &oe, const MySi
 
 					if ((p.GetLength()>100)&&(chan!=(8-1)))
 					{
-						BLCorr(cData, BLData, offsetD,p.GetLength(),50,2);
+						BLCorr(cData, BLData, offsetD,p.GetLength(), 50, 1);
 
 						for (int j=0; j<p.GetLength();++j)
 						{
@@ -438,7 +439,7 @@ MyCFDAdjuster::~MyCFDAdjuster()
 	delete cfdhist;
 }
 //_________________________________________________________________________________
-void MyCFDAdjuster::View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer &pa)
+void MyCFDAdjuster::View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer &pa, bool blcorr)
 {
 	if (oe.GetNbrBytes() == 1)
 		adjustCfdImpl<char>(oe,sae,pa);

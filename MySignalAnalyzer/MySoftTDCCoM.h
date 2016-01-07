@@ -7,14 +7,14 @@
 class MySoftTDCCoM8Bit : public MySoftTDC
 {
 public:
-	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&);
+	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&, bool);
 };
 
 //this is called in case it is a 10 Bit Instrument
 class MySoftTDCCoM16Bit : public MySoftTDC
 {
 public:
-	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&);
+	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&, bool);
 };
 
 #endif

@@ -141,7 +141,8 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 
 	bool CheckDataByte = static_cast<int>(set.GetValue("CheckDataByte",false)+0.1);
 	//if (CheckDataByte) fOE.MakeDataHisto(fRm);
-
+	// ON/OFF baseline correction
+	bool BaselineCorr = static_cast<int>(set.GetValue("BaselineCorrection", false) + 0.1);
 	//First EventID//
 	fOE.Clear();
 	fOE.Serialize(ar);
@@ -183,9 +184,9 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 		if (Smoothing_Mode) fOE.Smoothing(SmoothingTime_ns);
 		
 		//--analyze the pulses--//
-		fSa.FindPeaksIn(fOE,fSAE);
+		fSa.FindPeaksIn(fOE, fSAE, BaselineCorr);
 		//--show the raw event or let user adjust the cfd settings--//
-		fEv.View(fOE,fSAE,fSa);
+		fEv.View(fOE, fSAE, fSa, BaselineCorr);
 		//--fill the puls histos--//
 		fPhf.FillPulsHistos(fOE,fSAE,fRm);
 
@@ -217,9 +218,10 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 		//----- Clear unnecessary events-----////motomura 2009/6/28
 		if (ClearUnnecessaryChannel)
 		{
-			for (size_t i=0; i<7;++i) //ch8
+			//Remain just ch7
+			for (size_t i=0; i<6;++i)
 				fOE.ClearChannel(i);
-			//fOE.ClearChannel(8-1);
+			fOE.ClearChannel(8-1);
 
 		}
 

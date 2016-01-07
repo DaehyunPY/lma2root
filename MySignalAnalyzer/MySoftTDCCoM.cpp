@@ -116,13 +116,13 @@ void com(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)
 
 //########################## 8 Bit Version ###########################################################################
 //______________________________________________________________________________________________________________________
-void MySoftTDCCoM8Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)
+void MySoftTDCCoM8Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr)
 {
 	com<char>(oe,sae);
 }
 //########################## 16 Bit Version ###########################################################################
 //______________________________________________________________________________________________________________________
-void MySoftTDCCoM16Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)
+void MySoftTDCCoM16Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr)
 {
 	com<short>(oe,sae);
 }

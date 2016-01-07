@@ -64,6 +64,8 @@ public:
 	void			AppendName(const char *in)	{fName=in;}
 	const char	   *GetName()const				{return fName.Data();}
 
+	const double	GetLimSlope()const			{ return fLimSlope; }
+
 //private:
 //	void			AddMPPoint(double in)		{fMPuls.push_back(in);}
 
@@ -82,6 +84,7 @@ private:
 	bool			fVoltage;					//flag that shows that this channel section is only for recording Voltages
 	dvec			fMPuls;						//the Mean Signalform
 	TString			fName;						//the name of the layer this channelsection belong to
+	double			fLimSlope;					//Limit of Pulse slope
 
 	ClassDef(MyChannelSection,1)				//Defines a Section of a Channel and its Properties
 };

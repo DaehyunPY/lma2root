@@ -17,9 +17,9 @@ public:
 public:
 	enum ESignalAnalyzeMethods{kCoM=0, kCfd, kDoNothing};
 	void Init(const MyOriginalEventInfo&, const MySignalAnalyzedEventInfo&);
-	void FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)const
+	void FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr=false)const
 	{
-		fStdc->FindPeaksIn(oe,sae);
+		fStdc->FindPeaksIn(oe,sae,blcorr);
 	}
 
 private:

@@ -28,7 +28,7 @@ bool MyArchive::newFile(const char * NewFileName)
 		//if the file has not been opened give an error message and return false
 		if(!file.is_open())
 		{
-			std::cerr << "something went wrong opening the file \""<<NewFileName<<std::endl;
+			std::cerr << "something went wrong opening the file(read) \""<<NewFileName<<std::endl;
 			return false;
 		}
 
@@ -45,7 +45,7 @@ bool MyArchive::newFile(const char * NewFileName)
 		//if the file has not been opened give an error message and return false
 		if(!file.is_open())
 		{
-			std::cerr << "something went wrong opening the file \""<<NewFileName<<std::endl;
+			std::cerr << "something went wrong opening the file(write) \""<<NewFileName<<std::endl;
 			return false;
 		}
 	}

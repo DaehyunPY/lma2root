@@ -12,7 +12,7 @@ class MySignalAnalyzedEvent;
 class MySoftTDC
 {
 public:
-	virtual void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&)=0;
+	virtual void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&, bool)=0;
 protected:
 	std::vector<double> cData;
 };
@@ -21,7 +21,7 @@ protected:
 class MySoftTDCDoNothing : public MySoftTDC
 {
 public:
-	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&){}
+	void FindPeaksIn(const MyOriginalEvent&, MySignalAnalyzedEvent&, bool){}
 };
 
 #endif

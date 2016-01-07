@@ -8,7 +8,7 @@
 MyChannelSection::MyChannelSection(int chnbr, int secnbr, MySettings &set, const MyOriginalEventInfo &oei):
 	  fLow(-1),fHigh(-1),
 	  fChNbr(chnbr), fPolarity(-1),fSecNbr(secnbr),
-	  fD(0),fW(0),fF(0),fT(0),fMPuls(0),fMSlope(0)	
+	  fD(0), fW(0), fF(0), fT(0), fMPuls(0), fMSlope(0), fLimSlope(0.)
 {
 	fName=Form("Chan%02dSec%02d",fChNbr+1,fSecNbr+1);
 	ReadSettings(set,oei);
@@ -32,6 +32,7 @@ void MyChannelSection::operator=(const MyChannelSection &ics)
 	fVoltage	= ics.fVoltage;
 	fMPuls		= ics.fMPuls;
 	fName		= ics.fName;
+	fLimSlope	= ics.fLimSlope;
 }
 
 //______________________________________________________________________________________________________________________
@@ -76,7 +77,10 @@ bool MyChannelSection::ReadSettings(MySettings &set, const MyOriginalEventInfo &
 	//tempD = set.GetValue(Form("%s_MaxHeight",GetName()),5000);
 	//changed = (TMath::Abs(tempD - fMH) > 1.e-4) || changed;
 	//fMH = tempD;
-
+	//Limit of slope//
+	tempD = set.GetValue(Form("%s_LimitSlope",GetName()),0.);
+	changed = (TMath::Abs(tempD - fLimSlope) > 1.e-4) || changed;
+	fLimSlope = tempD;
 	//MeanPulsSlope//
 	tempD = set.GetValue(Form("%s_MeanPulsSlope",GetName()),0);
 	changed = (TMath::Abs(tempD - fMSlope) > 1.e-4) || changed;
@@ -89,7 +93,7 @@ bool MyChannelSection::ReadSettings(MySettings &set, const MyOriginalEventInfo &
 		changed = true;
 		for (int i=0;i<tempI;++i)
 		{
-			tempD = set.GetValue(Form("%s_MeanPuls%02d",GetName(),i),0);
+			tempD = set.GetValue(Form("%s_MeanPuls%03d",GetName(),i),0);
 			fMPuls.push_back(tempD);
 		}
 	}

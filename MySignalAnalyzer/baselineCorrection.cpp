@@ -31,7 +31,7 @@ void BLCorr(double* data, double* BLdata, double offset, const long ndata, const
 				}
 			}
 			if (n>0) BLdata[i]=temp/n;
-      else break;
+	  else break;
 		}
 	}
 

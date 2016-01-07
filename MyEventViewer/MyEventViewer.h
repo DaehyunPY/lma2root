@@ -22,7 +22,7 @@ public:
 	virtual ~MyEventViewerBase()	{}
 
 public:
-	virtual void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&)=0;
+	virtual void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&, bool)=0;
 
 protected:
 	TCanvas		*c;
@@ -53,7 +53,7 @@ public:
 	~MyRawEventViewer();
 
 public:
-	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&);
+	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&, bool blcorr = false);
 
 private:
 	template <typename T> void showEventImpl(const MyOriginalEvent&, const MySignalAnalyzedEvent&);
@@ -68,7 +68,7 @@ public:
 	~MyCFDAdjuster();
 
 public:
-	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&);
+	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&, bool blcorr = false);
 
 private:
 	template <typename T> void adjustCfdImpl(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&);
@@ -82,7 +82,7 @@ public:
 	~MyEventViewerDoNothing()	{}
 
 public:
-	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&)	{}
+	void View(const MyOriginalEvent&, MySignalAnalyzedEvent&, const MySignalAnalyzer&, bool blcorr = false)	{}
 };
 
 
@@ -96,9 +96,9 @@ public:
 public:	
 	enum EViewMode{kDoNothing=0,kShowRaw,kAdjustCFD};
 	void Init(int mode, const MyOriginalEventInfo&);
-	void View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer &sa)
+	void View(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, const MySignalAnalyzer &sa, bool blcorr=false)
 	{
-		fEv->View(oe,sae,sa);
+		fEv->View(oe,sae,sa, blcorr);
 	}
 
 private:

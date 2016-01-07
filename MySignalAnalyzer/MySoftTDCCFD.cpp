@@ -177,7 +177,7 @@ void cfd(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vector<doub
 						for (int j=0; j<pLength; ++j)
 							cData[j] -= (gmz(static_cast<double>(j),xPoly,cs->GetMPuls())*(mslope/MPulsSlope));
 						//start from begining
-						i=delay-1;
+						//i=delay-1;
 					}
 				}
 			}
@@ -232,6 +232,8 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 			const double threshold	= cs->GetThreshold() / vertGain;						//mV -> ADC Bytes
 			const double fraction	= cs->GetFraction();
 
+			//Get limit of slope
+			const double limSlope = cs->GetLimSlope();
 
 			//copy the waveform to the new array//
 			//if the copy puls is not big enough to hold the original puls then the container will be resized//
@@ -245,7 +247,7 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 			//----------------BaseLine Correction----------------//
 			if ((pLength>100)&&(iChan!=(8-1)))
 			{
-				BLCorr(&cData[0], &BLData[0],offset,pLength,50,2);
+				BLCorr(&cData[0], &BLData[0],offset,pLength,50, 1);
 				for (size_t i=0; i<pLength; i++) cData[i]=cData[i]-BLData[i]+offset;
 			}
 
@@ -349,6 +351,10 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 					//--width & fwhm of peak--//
 					fwhm<T>(oe,oc,Peak);
 
+					//delete bad peak
+					//if (Peak.GetFWHM() > 11) sac.DelPeak();
+					if ((mslope < limSlope) && (iChan < 8 - 1)) sac.DelPeak();
+
 					//--the com and integral--//
 					CoM<T>(oe,oc,Peak);
 
@@ -369,16 +375,18 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 
 //########################## 8 Bit Version ###########################################################################
 //______________________________________________________________________________________________________________________
-void MySoftTDCCFD8Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)
+void MySoftTDCCFD8Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr)
 {
-	cfd<char>(oe,sae,cData);
+	if (blcorr) cfdBLCorr<char>(oe, sae, cData);
+	else cfd<char>(oe,sae,cData);
 }
 
 //########################## 16 Bit Version ###########################################################################
 //______________________________________________________________________________________________________________________
-void MySoftTDCCFD16Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae)
+void MySoftTDCCFD16Bit::FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr)
 {
-	cfd<short>(oe,sae,cData);
-	//cfdBLCorr<short>(oe,sae,cData);
-
+	//std::cout << blcorr << std::endl;
+	if (blcorr) cfdBLCorr<short>(oe, sae, cData);
+	else cfd<short>(oe, sae, cData);
+	
 }

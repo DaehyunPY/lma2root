@@ -48,9 +48,9 @@ MyDetektorHitSorterAchimHex::MyDetektorHitSorterAchimHex(const MyDetektorInfo &d
 	rm.create2d(fHiOff+kDetAll,		"DetAll",		"x [mm]","y [mm]",300,-maxpos_mm,maxpos_mm,300,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
 	rm.create2d(fHiOff+kDetRisky,	"DetRisky",		"x [mm]","y [mm]",300,-maxpos_mm,maxpos_mm,300,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
 	rm.create2d(fHiOff+kDetNonRisky,"DetNonRisky",	"x [mm]","y [mm]",300,-maxpos_mm,maxpos_mm,300,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
-	rm.create1d(fHiOff+kTime,		"Time",			"MCP [ns]",10000,0,maxtof,Form("%s/SorterOutput",di.GetName()));
-	rm.create2d(fHiOff+kPosXVsTime,	"PosXVsTofAll",	"MCP [ns]","x [mm]",500,0,maxtof,500,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
-	rm.create2d(fHiOff+kPosYVsTime,	"PosYVsTofAll",	"MCP [ns]","y [mm]",500,0,maxtof,500,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
+	rm.create1d(fHiOff+kTime,		"Time",			"Tof [ns]",10000,0,maxtof,Form("%s/SorterOutput",di.GetName()));
+	rm.create2d(fHiOff+kPosXVsTime,	"PosXVsTofAll",	"Tof [ns]","x [mm]",2000,0,maxtof,300,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
+	rm.create2d(fHiOff+kPosYVsTime,	"PosYVsTofAll",	"Tof [ns]","y [mm]",2000,0,maxtof,300,-maxpos_mm,maxpos_mm,Form("%s/SorterOutput",di.GetName()));
 	//calibration//
 	rm.create2d(fHiOff+kNonLinearityMap,"NonlinearityMap","x [mm]","y [mm]",200,-100-0.5,100-0.5,200,-100-0.5,100-0.5,Form("%s/SorterOutput",di.GetName()));
 }
@@ -317,19 +317,19 @@ void MyDetektorHitSorterAchimHex::FillHistosAfterShift(const MyDetektor &d, MyHi
 
 	//without scalefactors//
 	const double Xuv_ns = u_ns;
-    const double Yuv_ns = 1/TMath::Sqrt(3.) * (u_ns - 2.*v_ns);
-    const double Xuw_ns = Xuv_ns;
-    const double Yuw_ns = 1/TMath::Sqrt(3.) * (2.*w_ns - u_ns);
+	const double Yuv_ns = 1/TMath::Sqrt(3.) * (u_ns - 2.*v_ns);
+	const double Xuw_ns = Xuv_ns;
+	const double Yuw_ns = 1/TMath::Sqrt(3.) * (2.*w_ns - u_ns);
 	const double Xvw_ns = (v_ns + w_ns);
-    const double Yvw_ns = 1/TMath::Sqrt(3.) * (w_ns - v_ns); 
+	const double Yvw_ns = 1/TMath::Sqrt(3.) * (w_ns - v_ns); 
 
 	//with scalefactors//
 	const double Xuv_mm = u_ns * sfu;
-    const double Yuv_mm = 1/TMath::Sqrt(3.) * (u_ns * sfu - 2.*v_ns * sfv);
-    const double Xuw_mm = Xuv_mm;
-    const double Yuw_mm = 1/TMath::Sqrt(3.) * (2.*w_ns * sfw  - u_ns * sfu);
-    const double Xvw_mm = (v_ns * sfv + w_ns * sfw);
-    const double Yvw_mm = 1/TMath::Sqrt(3.) * (w_ns * sfw - v_ns * sfv); 
+	const double Yuv_mm = 1/TMath::Sqrt(3.) * (u_ns * sfu - 2.*v_ns * sfv);
+	const double Xuw_mm = Xuv_mm;
+	const double Yuw_mm = 1/TMath::Sqrt(3.) * (2.*w_ns * sfw  - u_ns * sfu);
+	const double Xvw_mm = (v_ns * sfv + w_ns * sfw);
+	const double Yvw_mm = 1/TMath::Sqrt(3.) * (w_ns * sfw - v_ns * sfv); 
 
 	//check for right timesum//
 	const bool csu = (TMath::Abs( u1+u2-2.*mcp) < 10) && u1d.size() && u2d.size() && mcpd.size();

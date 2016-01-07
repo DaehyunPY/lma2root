@@ -36,7 +36,7 @@ void extractNormPulsAndSlope(TH1* p, TH1* ps, const char * ChannelSectionName, o
 	double Maximum = p->GetMaximum();
 	for (int i=1; i <= p->GetNbinsX(); ++i)
 	{
-		file << ChannelSectionName << "_MeanPuls"<< std::setw(3) << i << "=" << (p->GetBinContent(i)/Maximum) <<"\t";
+		file << ChannelSectionName << "_MeanPuls" << std::setw(3) << std::setfill('0') << i << "=" << (p->GetBinContent(i) / Maximum) << "\t";
 		if((i%5)==0) file << std::endl;
 	}
 	file << std::endl;
@@ -138,7 +138,8 @@ void fillMeanPulsAndFwhmHistos(MyHistos &hi, const int off, const MyOriginalEven
 		hi.fill2d(mp2didx,i,mv/integral);
 	}
 	//fill slope histogram//
-	hi.fill1d(mpsidx,TMath::Abs(p.GetSlope()/p.GetMaximum()));
+	//hi.fill1d(mpsidx,TMath::Abs(p.GetSlope()/p.GetMaximum()));
+	hi.fill1d(mpsidx, TMath::Abs(p.GetSlope()));
 	//fill fwhm vs ph histogram//
 	hi.fill2d(fwphidx,p.GetFWHM(),p.GetHeight());
 }
@@ -217,10 +218,12 @@ MyPulsHistoFillerBase::MyPulsHistoFillerBase(const MyOriginalEventInfo &oei, con
 					rm.create1d(mpidxPos,"MPuls","Puls",150,0,150,dirnamePos);
 					rm.create1d(mpidxNeg,"MPuls","Puls",150,0,150,dirnameNeg);
 
-					rm.create1d(mpsidxPos,"MPulsSlope","#frac{Slope}{height}",400,0,1,dirnamePos);
-					rm.create1d(mpsidxNeg,"MPulsSlope","#frac{Slope}{height}",400,0,1,dirnameNeg);
+					//rm.create1d(mpsidxPos,"MPulsSlope","#frac{Slope}{height}",400,0,1,dirnamePos);
+					//rm.create1d(mpsidxNeg,"MPulsSlope","#frac{Slope}{height}",400,0,1,dirnameNeg);
+					rm.create1d(mpsidxPos, "PulsSlope", "Slope", 400, 0, 10000, dirnamePos);
+					rm.create1d(mpsidxNeg, "PulsSlope", "Slope", 400, 0, 10000, dirnameNeg);
 
-					rm.create2d(mp2didxPos,"MPuls2D","Puls","",150,0,150,400,-0.2,0.4,dirnamePos);
+					rm.create2d(mp2didxPos, "MPuls2D", "Puls", "", 150, 0, 150, 400, -0.2, 0.4, dirnamePos);
 					rm.create2d(mp2didxNeg,"MPuls2D","Puls","",150,0,150,400,-0.4,0.2,dirnameNeg);
 
 					rm.create2d(hwidxPos,"HeightVsFWHM","fwhm [ns]","U [mV]",300,0,30,256,0,oci.GetFullScale(),dirnamePos);
