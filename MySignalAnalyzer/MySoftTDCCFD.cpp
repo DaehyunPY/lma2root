@@ -54,6 +54,8 @@ void cfd(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vector<doub
 			const double threshold	= cs->GetThreshold() / vertGain;						//mV -> ADC Bytes
 			const double fraction	= cs->GetFraction();
 
+			//Get limit of slope
+			const double limSlope = cs->GetLimSlope();
 
 			//copy the waveform to the new array//
 			//if the copy puls is not big enough to hold the original puls then the container will be resized//
@@ -162,6 +164,9 @@ void cfd(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vector<doub
 
 					//--width & fwhm of peak--//
 					fwhm<T>(oe,oc,Peak);
+
+					//delete bad peak
+					if ((mslope < limSlope) && (iChan < 8 - 1)) sac.DelPeak();
 
 					//--the com and integral--//
 					CoM<T>(oe,oc,Peak);
@@ -352,7 +357,6 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 					fwhm<T>(oe,oc,Peak);
 
 					//delete bad peak
-					//if (Peak.GetFWHM() > 11) sac.DelPeak();
 					if ((mslope < limSlope) && (iChan < 8 - 1)) sac.DelPeak();
 
 					//--the com and integral--//
