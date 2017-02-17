@@ -144,7 +144,7 @@ private:
 	std::vector<int>	fNRecHitsVec;
 
 public:
-	std::vector<int>	GetNbrRecHitsVec() {return fNRecHitsVec;}
+	std::vector<int>&	GetNbrRecHitsVec() {return fNRecHitsVec;}
 };
 
 

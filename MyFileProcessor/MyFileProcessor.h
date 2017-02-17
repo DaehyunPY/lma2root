@@ -16,6 +16,7 @@
 #include "../MySignalAnalyzer/MySignalAnalyzer.h"
 #include "../MyDetektorHitSorter/MyDetektorHitSorter.h"
 #include "../MyRootManager/MyRootManager.h"
+#include "../BinaryDump.h"
 
 class TString;
 class MySettings;
@@ -46,6 +47,8 @@ private:
 	MySignalAnalyzer			fSa;		//analyzes the pulses and searches for peaks 
 	MyDetektorHitSorter			fDhs;		//sorts the signalanalyzed events for detektorhits
 	MyRootManager				fRm;		//contains all histograms, manages the rootfile and the trees
+
+	BinaryDump					fBD;		//Dump the hits data as binary
 
 	const bool					fVerbose;
 

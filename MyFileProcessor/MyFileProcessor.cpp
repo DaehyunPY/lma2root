@@ -2,6 +2,7 @@
 #include <TString.h>
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 #include "MyFileProcessor.h"
 
@@ -126,6 +127,10 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 	//sorter//
 	fDhs.Init(fSEI,fRm);
 
+	bool dumpBin = static_cast<int>(set.GetValue("DumpBinary", false) + 0.1);
+	string fileName = string(set.GetString("BinaryFileName", "export.hit"));
+	fBD.OpenFile(fileName);
+
 	//--refine signals--//
 	bool Diff_Mode = static_cast<int>(set.GetValue("DifferentialMode", false)+0.1);
 	bool Smoothing_Mode =  static_cast<int>(set.GetValue("SmoothingMode", false)+0.1);
@@ -143,6 +148,7 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 	//if (CheckDataByte) fOE.MakeDataHisto(fRm);
 	// ON/OFF baseline correction
 	bool BaselineCorr = static_cast<int>(set.GetValue("BaselineCorrection", false) + 0.1);
+
 	//First EventID//
 	fOE.Clear();
 	fOE.Serialize(ar);
@@ -231,6 +237,10 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 
 		//--fill the trees--//
 		fRm.FillTrees();
+		//--dump to binary file--//
+		if (dumpBin)
+			//fBD.WriteData(fSE, fOE.GetEventID());
+			fBD.WriteData(fSE, EventCounter);
 		//--increase the event counter--//
 		++EventCounter;
 

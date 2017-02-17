@@ -230,6 +230,9 @@
     <ClCompile Include="..\AchimsRoutineSources\sum_walk_calibration_class.cpp">
       <Filter>AchimsSource</Filter>
     </ClCompile>
+    <ClCompile Include="..\BinaryDump.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\MySignalAnalyzer\baselineCorrection.h">
@@ -293,6 +296,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\MySignalAnalyzer\MySoftTDCCoM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\BinaryDump.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

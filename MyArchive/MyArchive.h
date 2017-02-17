@@ -25,6 +25,7 @@ public:
 	MyArchive & operator<<(short s)						{file.write((char*)&s,sizeof(short) ); return *this;}
 	MyArchive & operator<<(long l)						{file.write((char*)&l,sizeof(long)  ); return *this;}
 	MyArchive & operator<<(double d)					{file.write((char*)&d,sizeof(double)); return *this;}
+	MyArchive & operator<<(unsigned int ui)				{ file.write((char*)&ui, sizeof(unsigned int)); return *this; }
 	void writeArray(void * data, long sizeOfData)		{file.write((char*)data,sizeOfData);}
 
 	MyArchive & operator>>(char &c)						{file.read(       &c,sizeof(char)  ); return *this;}

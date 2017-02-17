@@ -228,6 +228,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\BinaryDump.cpp" />
     <ClCompile Include="..\MySignalAnalyzer\baselineCorrection.cpp" />
     <ClCompile Include="..\MyDetektorHitSorter\helperfunctionsforDetSorter.cpp" />
     <ClCompile Include="..\MySignalAnalyzer\helperfunctionsforSTDC.cpp" />
@@ -327,6 +328,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\BinaryDump.h" />
     <ClInclude Include="..\MySignalAnalyzer\baselineCorrection.h" />
     <ClInclude Include="..\MyDetektorHitSorter\helperfunctionsforDetSorter.h" />
     <ClInclude Include="..\MySignalAnalyzer\helperfunctionsforSTDC.h" />
