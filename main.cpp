@@ -60,6 +60,9 @@ void run(const bool verbose)
 	MyFileProcessor		 fp(verbose);	//the file processor
 	MySettings			 set(verbose);	//contains all the settings
 	TString				 LMAFileName;	//contains the filename of the *.lma file to be analyzed
+	BinaryDump			 fBD;		//Dump the hits data as binary
+	bool isFirstFile = true;
+
 
 	//enter the main analysis loop//
 	while(true)
@@ -78,11 +81,12 @@ void run(const bool verbose)
 
 		//process file//
 		//if true is returned, 'q' has been pressed during the analysis, so quit here//
-		if (fp.ProcessFile(LMAFileName,set))
+		if (fp.ProcessFile(LMAFileName, set, isFirstFile))
 		{
 			std::cout << "User requested breaking...."<<std::endl;
 			break;
 		}
+		isFirstFile = false;
 	}
 	//now write the calibration files, if requested//
 	if (static_cast<int>(set.GetValue("WriteCalibrationStuff",false)))

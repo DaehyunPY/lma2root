@@ -28,7 +28,7 @@ public:
 	~MyFileProcessor();
 
 public:
-	bool ProcessFile(const TString &FileName, MySettings&);
+	bool ProcessFile(const TString &FileName, MySettings&, bool);
 	void WriteConfigureFiles();
 
 private:

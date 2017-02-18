@@ -70,7 +70,7 @@ void MyFileProcessor::WriteConfigureFiles()
 }
 
 //_________________________________________________________________________________
-bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
+bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set, bool isFirstFile)
 {
 	bool endnow = false;
 	
@@ -127,9 +127,10 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 	//sorter//
 	fDhs.Init(fSEI,fRm);
 
+	// Export bnary file
 	bool dumpBin = static_cast<int>(set.GetValue("DumpBinary", false) + 0.1);
 	string fileName = string(set.GetString("BinaryFileName", "export.hit"));
-	fBD.OpenFile(fileName);
+	if (isFirstFile && dumpBin) fBD.OpenFile(fileName);
 
 	//--refine signals--//
 	bool Diff_Mode = static_cast<int>(set.GetValue("DifferentialMode", false)+0.1);
@@ -240,7 +241,8 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set)
 		//--dump to binary file--//
 		if (dumpBin)
 			//fBD.WriteData(fSE, fOE.GetEventID());
-			fBD.WriteData(fSE, EventCounter);
+			fBD.WriteData(fSE, EventCounter);//test code 
+
 		//--increase the event counter--//
 		++EventCounter;
 
