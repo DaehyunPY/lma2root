@@ -240,8 +240,8 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set, bool i
 		fRm.FillTrees();
 		//--dump to binary file--//
 		if (dumpBin)
-			//fBD.WriteData(fSE, fOE.GetEventID());
-			fBD.WriteData(fSE, EventCounter);//test code 
+			fBD.WriteData(fSE, fOE.GetEventID());
+			//fBD.WriteData(fSE, EventCounter);//test code 
 
 		//--increase the event counter--//
 		++EventCounter;
