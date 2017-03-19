@@ -238,6 +238,7 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set, bool i
 
 		//--fill the trees--//
 		fRm.FillTrees();
+
 		//--dump to binary file--//
 		if (dumpBin)
 			fBD.WriteData(fSE, fOE.GetEventID());
@@ -262,6 +263,8 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set, bool i
 	long endEventID = fOE.GetEventID();
 	//flush the root files//
 	fRm.FlushRootFiles();
+	//flush hits file
+	if (dumpBin) fBD.FlushBinFile();
 	//--Stop the Stopwatch--//
 	watch.Stop();
 	//--do some status output--//

@@ -60,7 +60,7 @@ void run(const bool verbose)
 	MyFileProcessor		 fp(verbose);	//the file processor
 	MySettings			 set(verbose);	//contains all the settings
 	TString				 LMAFileName;	//contains the filename of the *.lma file to be analyzed
-	BinaryDump			 fBD;		//Dump the hits data as binary
+	//BinaryDump			 fBD;		//Dump the hits data as binary
 	bool isFirstFile = true;
 
 

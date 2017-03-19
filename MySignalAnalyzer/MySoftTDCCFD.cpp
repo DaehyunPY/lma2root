@@ -252,7 +252,7 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 			//----------------BaseLine Correction----------------//
 			if ((pLength>100)&&(iChan!=(8-1)))
 			{
-				BLCorr(&cData[0], &BLData[0],offset,pLength,50, 1);
+				BLCorr(&cData[0], &BLData[0],offset,pLength,100, 1);
 				for (size_t i=0; i<pLength; i++) cData[i]=cData[i]-BLData[i]+offset;
 			}
 

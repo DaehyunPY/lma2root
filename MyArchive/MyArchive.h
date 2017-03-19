@@ -19,7 +19,9 @@ public:
 	bool IsWriting()									{return isWriting;}
 	bool IsReading()									{return !isWriting;}
 	bool fileIsOpen()									{return file.is_open();}
-	bool newFile(const char * NewFileName);				
+	bool newFile(const char * NewFileName);
+	void CloseFile()									{ if(file.is_open()) file.close(); }
+	void FlushFile()									{ file.flush(); }
 
 	MyArchive & operator<<(char c)						{file.write(       &c,sizeof(char)  ); return *this;}
 	MyArchive & operator<<(short s)						{file.write((char*)&s,sizeof(short) ); return *this;}

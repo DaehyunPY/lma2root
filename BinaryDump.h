@@ -14,6 +14,7 @@ public:
 
 	void OpenFile(const string fileName);
 	void WriteData(MySortedEvent&, unsigned int);
+	void FlushBinFile();
 
 private:
 	//export files

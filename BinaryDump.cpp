@@ -9,6 +9,12 @@ BinaryDump::BinaryDump(const string fileName) :hitsFile(MyArchive::ArWriting)
 
 }
 
+BinaryDump::~BinaryDump()
+{
+	if (hitsFile.fileIsOpen())
+		hitsFile.CloseFile();
+}
+
 void BinaryDump::OpenFile(const string fileName)
 {
 	hitsFile.newFile(fileName.data());
@@ -17,9 +23,14 @@ void BinaryDump::OpenFile(const string fileName)
 
 }
 
+void BinaryDump::FlushBinFile()
+{
+	hitsFile.FlushFile();
+}
+
 void BinaryDump::WriteData(MySortedEvent& se, unsigned int tag)
 {
-	//--- Fike structure ---//
+	//--- File structure ---//
 	// UINT32 Tag
 	// INT16 Number of hits
 	//	double time
@@ -42,7 +53,4 @@ void BinaryDump::WriteData(MySortedEvent& se, unsigned int tag)
 		hitsFile << hit.Time();
 		hitsFile << static_cast<short>(hit.RekMeth());
 	}
-}
-BinaryDump::~BinaryDump()
-{
 }
