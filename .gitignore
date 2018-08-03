@@ -1,0 +1,7 @@
+Projekt/Release/
+.vs/
+*.exe
+*.exp
+*.lib
+*Dict.*
+!resort64c.*
