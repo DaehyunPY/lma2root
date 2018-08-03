@@ -651,7 +651,8 @@ void MyCFDAdjuster::adjustCfdImpl(const MyOriginalEvent &oe, MySignalAnalyzedEve
 				gSystem->ProcessEvents();
 			}
 			//--act according to the keystroke that was made--//
-			char ch = _getch();
+			char ch; 
+			ch = _getch();
 			if		(ch == 'y')cs.SetFraction(cs.GetFraction()- 0.01);
 			else if (ch == 'a')cs.SetFraction(cs.GetFraction()+ 0.01);
 			else if (ch == 'x')cs.SetDelay(cs.GetDelay() - 1);
