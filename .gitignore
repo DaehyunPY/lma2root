@@ -1,8 +1,7 @@
-Projekt/Release/
-Projekt/Debug/
+Release/
+Debug/
 .vs/
 *.exe
 *.exp
 *.lib
 *Dict.*
-!resort64c.*
