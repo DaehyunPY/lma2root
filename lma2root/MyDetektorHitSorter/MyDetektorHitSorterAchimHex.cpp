@@ -12,6 +12,7 @@
 #include "../MyEvent/MySignalAnalyzedEvent/MyPeak/MyPeak.h"
 #include "../MyEvent/MySignalAnalyzedEvent/MySignalAnalyzedEvent.h"
 #include "../MyEvent/MySignalAnalyzedEvent/MySignalAnalyzedChannel/MySignalAnalyzedChannel.h"
+using namespace std;
 
 //________________________________________Achims Sorter Hex___________________________________________________________________________________________________________________
 MyDetektorHitSorterAchimHex::MyDetektorHitSorterAchimHex(const MyDetektorInfo &di, MyHistos &rm, int HiOff):

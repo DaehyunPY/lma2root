@@ -14,6 +14,7 @@
 #include "../MyEvent/MySignalAnalyzedEvent/MySignalAnalyzedEventInfo.h"
 #include "../MyEvent/MySignalAnalyzedEvent/MySignalAnalyzedChannel/MyChannelSection.h"
 #include "../MyEvent/MySignalAnalyzedEvent/MyPeak/MyPeak.h"
+using namespace std;
 
 
 //____________________________find nbr of peaks of a given puls_______________________________________________________________________________________________________________________________

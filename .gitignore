@@ -1,7 +1,10 @@
-Release/
-Debug/
 .vs/
 *.exe
 *.exp
-*.lib
+*.sln
 *Dict.*
+Binaries/
+build/
+Debug/
+Projekt/
+Release/

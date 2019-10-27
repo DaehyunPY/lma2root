@@ -9,6 +9,7 @@
 #include "../MyEvent/MySortedEvent/MyDetektor/MyDetektor.h"
 #include "../MyEvent/MySortedEvent/MyDetektor/MyDetektorHit.h"
 #include "../MyEvent/MySignalAnalyzedEvent/MyPeak/MyPeak.h"
+using namespace std;
 
 
 //________________________________________Achims Sorter Hex___________________________________________________________________________________________________________________
