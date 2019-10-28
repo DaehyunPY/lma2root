@@ -4,16 +4,15 @@
 #include "MyDetektorHitSorterQuad.h"
 
 //______________________MyDetektorHitSorter Simple Version______________________
-class MyDetektorHitSorterSimple : public MyDetektorHitSorterQuad
-{
-public:
-	MyDetektorHitSorterSimple(const MyDetektorInfo&, MyHistos&, int HiOff);
+class MyDetektorHitSorterSimple : public MyDetektorHitSorterQuad {
+ public:
+  MyDetektorHitSorterSimple(const MyDetektorInfo &, MyHistos &, int HiOff);
 
-public:
-	void Sort(MySignalAnalyzedEvent&, MyDetektor&, MyHistos&);
-	void WriteCalibData(const MyDetektorInfo&)	{}
+ public:
+  void Sort(MySignalAnalyzedEvent &, MyDetektor &, MyHistos &);
+  void WriteCalibData(const MyDetektorInfo &) {}
 
-private:
-	void SortForTimesum(MyDetektor&, MyHistos&);
+ private:
+  void SortForTimesum(MyDetektor &, MyHistos &);
 };
 #endif

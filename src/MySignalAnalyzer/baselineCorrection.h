@@ -4,9 +4,7 @@
 #include <iostream>
 #include <vector>
 
-
 //void BLCorr(double* , double* , const double , const long );
-void BLCorr(double* , double* , double , const long , const int , const int);
-
+void BLCorr(double *, double *, double, const long, const int, const int);
 
 #endif

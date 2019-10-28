@@ -8,24 +8,22 @@ class MyOriginalEvent;
 class MySignalAnalyzedEventInfo;
 class MySignalAnalyzedEvent;
 
-class MySignalAnalyzer
-{
-public:
-	MySignalAnalyzer():fStdc(0),fNbrBytes(0),fAnalyze(true),fMethod(-1)	{}
-	~MySignalAnalyzer();
+class MySignalAnalyzer {
+ public:
+  MySignalAnalyzer() : fStdc(0), fNbrBytes(0), fAnalyze(true), fMethod(-1) {}
+  ~MySignalAnalyzer();
 
-public:
-	enum ESignalAnalyzeMethods{kCoM=0, kCfd, kDoNothing};
-	void Init(const MyOriginalEventInfo&, const MySignalAnalyzedEventInfo&);
-	void FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr=false)const
-	{
-		fStdc->FindPeaksIn(oe,sae,blcorr);
-	}
+ public:
+  enum ESignalAnalyzeMethods { kCoM = 0, kCfd, kDoNothing };
+  void Init(const MyOriginalEventInfo &, const MySignalAnalyzedEventInfo &);
+  void FindPeaksIn(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, bool blcorr = false) const {
+    fStdc->FindPeaksIn(oe, sae, blcorr);
+  }
 
-private:
-	MySoftTDC	*fStdc;
-	int			 fNbrBytes;
-	bool		 fAnalyze;
-	int			 fMethod;
+ private:
+  MySoftTDC *fStdc;
+  int fNbrBytes;
+  bool fAnalyze;
+  int fMethod;
 };
 #endif

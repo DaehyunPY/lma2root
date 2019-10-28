@@ -1,6 +1,6 @@
-IF(MSVC)
-    ADD_DEFINITIONS(/MP /FS)
-ENDIF(MSVC)
+IF (MSVC)
+  ADD_DEFINITIONS(/MP /FS)
+ENDIF (MSVC)
 
 ### Link ROOT
 LIST(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}")
@@ -12,11 +12,11 @@ INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/../include")
 LINK_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/../lib")
 SET(HEADERS_RESORT ../include/resort64c.h)
-IF(MSVC)
-    LINK_LIBRARIES(libResort64c-win.lib)
-ELSE(MSVC)
-    LINK_LIBRARIES(libResort64c-linux_x64.a)
-ENDIF(MSVC)
+IF (MSVC)
+  LINK_LIBRARIES(libResort64c-win.lib)
+ELSE (MSVC)
+  LINK_LIBRARIES(libResort64c-linux_x64.a)
+ENDIF (MSVC)
 
 ### Build lma2root
 SET(HEADERS_DICT
@@ -40,13 +40,13 @@ SET(HEADERS_DICT
     MyEvent/MySortedEvent/MyPunkt/MyPunkt.h
     MyEvent/MySortedEvent/MySortedEvent.h
     MyEvent/MySortedEvent/MySortedEventInfo.h
-)
-FOREACH(HEADER ${HEADERS_DICT})
-    GET_FILENAME_COMPONENT(BASE "${HEADER}" NAME_WE)
-    ROOT_GENERATE_DICTIONARY(G__${BASE} "${HEADER}")
-    SET(SRCS_DICT ${SRCS_DICT} G__${BASE}.cxx)
-    SET(MODS_DICT ${MODS_DICT} lib${BASE}_rdict.pcm)
-ENDFOREACH(HEADER)
+    )
+FOREACH (HEADER ${HEADERS_DICT})
+  GET_FILENAME_COMPONENT(BASE "${HEADER}" NAME_WE)
+  ROOT_GENERATE_DICTIONARY(G__${BASE} "${HEADER}")
+  SET(SRCS_DICT ${SRCS_DICT} G__${BASE}.cxx)
+  SET(MODS_DICT ${MODS_DICT} lib${BASE}_rdict.pcm)
+ENDFOREACH (HEADER)
 SET(HEADERS_MAIN
     BinaryDump.h
     MyArchive/MyArchive.h
@@ -75,7 +75,7 @@ SET(HEADERS_MAIN
     # ThreadStuff/MySoftTDCCFDWithNonWorkingThreats.h
     # ThreadStuff/MySoftTDCCoMWithNonWorkingThreats.h
     # ThreadStuff/MySoftTDCWithNonWorkingThreats.h
-)
+    )
 SET(SRCS_MAIN
     BinaryDump.cpp
     main.cpp
@@ -122,6 +122,6 @@ SET(SRCS_MAIN
     # ThreadStuff/MySoftTDCCFDWithNonWorkingThreats.cpp
     # ThreadStuff/MySoftTDCCoMWithNonWorkingThreats.cpp
     # ThreadStuff/MySoftTDCWithNonWorkingThreats.cpp
-)
+    )
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS_MAIN} ${SRCS_DICT})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${ROOT_LIBRARIES})

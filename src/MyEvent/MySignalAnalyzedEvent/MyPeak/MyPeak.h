@@ -3,109 +3,106 @@
 
 #include <TObject.h>
 
-enum EPolarity
-{
-	kBad=0,
-	kPositive,
-	kNegative
+enum EPolarity {
+  kBad = 0,
+  kPositive,
+  kNegative
 };
 
+class MyPeak {
+ public:
+  MyPeak() {}
+  MyPeak(int ParentChannelNbr, int ParentPulsNbr, int PeakNbr);
 
-class MyPeak
-{
-public:
-	MyPeak()								{}
-	MyPeak(int ParentChannelNbr, int ParentPulsNbr, int PeakNbr);
+ public:
+  void Clear();
 
-public:
-	void   Clear();
+ public:
+  void SetTime(double in) { fTime = in; }
+  double GetTime() const { return fTime; }
 
-public:
-	void   SetTime(double in)				{fTime = in;}
-	double GetTime() const					{return fTime;}
+  void SetCoM(double in) { fCom = in; }
+  double GetCoM() const { return fCom; }
 
-	void   SetCoM(double in)				{fCom = in;}
-	double GetCoM() const					{return fCom;}
+  void SetCFD(double in) { fCfd = in; }
+  double GetCFD() const { return fCfd; }
 
-	void   SetCFD(double in)				{fCfd = in;}
-	double GetCFD() const					{return fCfd;}
-	
-	void   SetIntegral(double in)			{fIntegral = in;}
-	double GetIntegral() const				{return fIntegral;}
+  void SetIntegral(double in) { fIntegral = in; }
+  double GetIntegral() const { return fIntegral; }
 
-	void   SetHeight(double in)				{fHeight = in;}
-	double GetHeight() const				{return fHeight;}
-	
-	void   SetHeightAb(double in)			{fHeightAbziehen = in;}
-	double GetHeightAb() const				{return fHeightAbziehen;}
-	
-	void   SetWidth(double in)				{fWidth = in;}
-	double GetWidth() const					{return fWidth;}
+  void SetHeight(double in) { fHeight = in; }
+  double GetHeight() const { return fHeight; }
 
-	void   SetFWHM(double in)				{fFwhm = in;}
-	double GetFWHM() const					{return fFwhm;}
+  void SetHeightAb(double in) { fHeightAbziehen = in; }
+  double GetHeightAb() const { return fHeightAbziehen; }
 
-	void   SetPosHalfLeft(double in)		{fPosHalfLeft = in;}
-	double GetPosHalfLeft() const			{return fPosHalfLeft;}
+  void SetWidth(double in) { fWidth = in; }
+  double GetWidth() const { return fWidth; }
 
-	void   SetPosHalfRight(double in)		{fPosHalfRight = in;}
-	double GetPosHalfRight() const			{return fPosHalfRight;}
+  void SetFWHM(double in) { fFwhm = in; }
+  double GetFWHM() const { return fFwhm; }
 
-	void   SetSlope(double in)				{fSlope = in;}
-	double GetSlope() const					{return fSlope;}
+  void SetPosHalfLeft(double in) { fPosHalfLeft = in; }
+  double GetPosHalfLeft() const { return fPosHalfLeft; }
 
-	void   SetStartPos(long in)				{fStartpos = in;}
-	long   GetStartPos() const				{return fStartpos;}
+  void SetPosHalfRight(double in) { fPosHalfRight = in; }
+  double GetPosHalfRight() const { return fPosHalfRight; }
 
-	void   SetStopPos(long in)				{fStoppos = in;}
-	long   GetStopPos() const				{return fStoppos;}
+  void SetSlope(double in) { fSlope = in; }
+  double GetSlope() const { return fSlope; }
 
-	void   SetMaxPos(long in)				{fMaxpos = in;}
-	long   GetMaxPos() const				{return fMaxpos;}
+  void SetStartPos(long in) { fStartpos = in; }
+  long GetStartPos() const { return fStartpos; }
 
-	void   SetMaximum(double in)			{fMaximum = in;}
-	double GetMaximum() const				{return fMaximum;}
+  void SetStopPos(long in) { fStoppos = in; }
+  long GetStopPos() const { return fStoppos; }
 
-	void   SetPolarity(long in)				{fPolarity = in;}
-	long   GetPolarity() const				{return fPolarity;}
+  void SetMaxPos(long in) { fMaxpos = in; }
+  long GetMaxPos() const { return fMaxpos; }
 
-	void   IsUsed(bool in)					{fUsed = in;}
-	bool   IsUsed() const					{return fUsed;}
+  void SetMaximum(double in) { fMaximum = in; }
+  double GetMaximum() const { return fMaximum; }
 
-	int	   GetParentPulsNbr()const			{return fPPN;}
-	int    GetParentChannelNbr()const		{return fPCN;}
-	int    GetPeakNbr()const				{return fPN;}
+  void SetPolarity(long in) { fPolarity = in; }
+  long GetPolarity() const { return fPolarity; }
 
-private:
-	double fTime;						//the time of the peaks, calculated from either cfd or com
-	double fCfd;						//the time calculated from cfd
-	double fCom;						//the time calculated form com
+  void IsUsed(bool in) { fUsed = in; }
+  bool IsUsed() const { return fUsed; }
 
-	long   fPolarity;					//the polarity of the peak
-	double fSlope;						//the slope of this peak
+  int GetParentPulsNbr() const { return fPPN; }
+  int GetParentChannelNbr() const { return fPCN; }
+  int GetPeakNbr() const { return fPN; }
 
-	long   fMaxpos;						//the position where the maximum of peak is
-	double fMaximum;					//the height in bits
-	double fHeight;						//the height in mV
-	double fHeightAbziehen;				//the height when you use the substraction cfd
+ private:
+  double fTime;                        //the time of the peaks, calculated from either cfd or com
+  double fCfd;                        //the time calculated from cfd
+  double fCom;                        //the time calculated form com
 
-	double fFwhm;						//the fwhm of the peak
-	double fWidth;						//the width at the bottom of the peak
-	double fPosHalfLeft;				//the pos where the left edge crosses the half of the height
-	double fPosHalfRight;				//the pos where the right edge crosses the half of the height
+  long fPolarity;                    //the polarity of the peak
+  double fSlope;                        //the slope of this peak
 
-	double fIntegral;					//the integral of the peak
+  long fMaxpos;                        //the position where the maximum of peak is
+  double fMaximum;                    //the height in bits
+  double fHeight;                        //the height in mV
+  double fHeightAbziehen;                //the height when you use the substraction cfd
 
-	long   fStartpos;					//the start postion of the peak
-	long   fStoppos;					//the stop position of the peak
+  double fFwhm;                        //the fwhm of the peak
+  double fWidth;                        //the width at the bottom of the peak
+  double fPosHalfLeft;                //the pos where the left edge crosses the half of the height
+  double fPosHalfRight;                //the pos where the right edge crosses the half of the height
 
-	bool   fUsed;						//flag wether this peak has been used in sorting the detektorhits
+  double fIntegral;                    //the integral of the peak
 
-	int    fPCN;						//the number of the parent Channel
-	int    fPPN;						//the number of the parent Puls
-	int    fPN;							//the number of the this Peak
+  long fStartpos;                    //the start postion of the peak
+  long fStoppos;                    //the stop position of the peak
 
-	ClassDef(MyPeak,1)					//A Peak
+  bool fUsed;                        //flag wether this peak has been used in sorting the detektorhits
+
+  int fPCN;                        //the number of the parent Channel
+  int fPPN;                        //the number of the parent Puls
+  int fPN;                            //the number of the this Peak
+
+ ClassDef(MyPeak, 1)                    //A Peak
 };
 
 #endif

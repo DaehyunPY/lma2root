@@ -5,10 +5,9 @@
 #include "./MyDetektor/MyDetektor.h"
 
 //______________________________________________________________________________________________________________________
-void MySortedEvent::ReadFromEventInfo(const MySortedEventInfo &sei)
-{
-	//detektors
-	fDetektors.clear();
-	for (size_t i=0;i<sei.GetNbrOfDetektorInfos();++i)
-		fDetektors.push_back(MyDetektor(fDetektors.size(),sei.GetDetektorInfo(i)));
+void MySortedEvent::ReadFromEventInfo(const MySortedEventInfo &sei) {
+  //detektors
+  fDetektors.clear();
+  for (size_t i = 0; i < sei.GetNbrOfDetektorInfos(); ++i)
+    fDetektors.push_back(MyDetektor(fDetektors.size(), sei.GetDetektorInfo(i)));
 }

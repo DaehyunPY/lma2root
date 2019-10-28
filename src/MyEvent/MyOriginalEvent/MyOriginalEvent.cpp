@@ -9,75 +9,69 @@
 #include "../../MyRootManager/MyHistos.h"
 
 //______________________________________________________________________________________________________________________
-void MyOriginalEvent::Serialize(MyArchive &ar)
-{
-	//--read the event values from the archive--//
-	ar >> (long &)fEventID;  // Event time stamp
-	// std::cerr << "EventID: " << EventID << std::endl;
-	ar >> (double &)fHorpos;  // Horpos from acqiris
-	// std::cerr << "horpos: " << horpos << std::endl;
+void MyOriginalEvent::Serialize(MyArchive &ar) {
+  //--read the event values from the archive--//
+  ar >> (long &) fEventID;  // Event time stamp
+  // std::cerr << "EventID: " << EventID << std::endl;
+  ar >> (double &) fHorpos;  // Horpos from acqiris
+  // std::cerr << "horpos: " << horpos << std::endl;
 
-	//--if the channel was recorded serialize it
-	for (size_t i=0; i<fChannels.size();++i)
-		if (fUsedChans & (0x1<<i))
-			GetChannel(i).Serialize(ar,*this);
+  //--if the channel was recorded serialize it
+  for (size_t i = 0; i < fChannels.size(); ++i)
+    if (fUsedChans & (0x1 << i))
+      GetChannel(i).Serialize(ar, *this);
 }
 
 //______________________________________________________________________________________________________________________
-void MyOriginalEvent::ReadFromEventInfo(const MyOriginalEventInfo &ei)
-{
-	//copy the values from the Event Header//
-	fNbrBytes			= ei.GetNbrBytes();
-	fSampInter			= ei.GetSampleInterval();
-	fNbrSamples			= ei.GetNbrSamples();
-	fDelayTime			= ei.GetDelayTime();
-	fTrigChan			= ei.GetTriggerChannel();
-	fTrigLevel			= ei.GetTriggerLevel();
-	fTrigSlope			= ei.GetTriggerSlope();
-	fUsedChans			= ei.GetUsedChannels();
-	fChanCombUsedChans	= ei.GetChanCombUsedChannels();
-	fNbrConPerCh		= ei.GetNbrConvPerChans();
+void MyOriginalEvent::ReadFromEventInfo(const MyOriginalEventInfo &ei) {
+  //copy the values from the Event Header//
+  fNbrBytes = ei.GetNbrBytes();
+  fSampInter = ei.GetSampleInterval();
+  fNbrSamples = ei.GetNbrSamples();
+  fDelayTime = ei.GetDelayTime();
+  fTrigChan = ei.GetTriggerChannel();
+  fTrigLevel = ei.GetTriggerLevel();
+  fTrigSlope = ei.GetTriggerSlope();
+  fUsedChans = ei.GetUsedChannels();
+  fChanCombUsedChans = ei.GetChanCombUsedChannels();
+  fNbrConPerCh = ei.GetNbrConvPerChans();
 
-	//channels
-	fChannels.clear();
-	for (size_t i=0;i<ei.GetNbrOfChannels();++i)
-			fChannels.push_back(MyOriginalChannel(i,ei));
+  //channels
+  fChannels.clear();
+  for (size_t i = 0; i < ei.GetNbrOfChannels(); ++i)
+    fChannels.push_back(MyOriginalChannel(i, ei));
 }
 
 //______________________________________________________________________________________________________________________
-void MyOriginalEvent::Clear()
-{
-	//--Clear the Channels, don't empty the Container--//
-	for (size_t i = 0; i < fChannels.size(); ++i)
-		fChannels[i].Clear();
+void MyOriginalEvent::Clear() {
+  //--Clear the Channels, don't empty the Container--//
+  for (size_t i = 0; i < fChannels.size(); ++i)
+    fChannels[i].Clear();
 }
 
 //______________________________________________________________________________________________________________________
 void MyOriginalEvent::ClearChannel(size_t ch)//motomura
 {
-	fChannels[ch].Clear();
+  fChannels[ch].Clear();
 }
 
 //______________________________________________________________________________________________________________________
-void MyOriginalEvent::Differential(const double dt_nsec, const double multi)
-{
-	for (size_t i=0; i<7;++i)
-		if (fUsedChans & (0x1<<i))
-			GetChannel(i).Differential(*this,dt_nsec,multi);
+void MyOriginalEvent::Differential(const double dt_nsec, const double multi) {
+  for (size_t i = 0; i < 7; ++i)
+    if (fUsedChans & (0x1 << i))
+      GetChannel(i).Differential(*this, dt_nsec, multi);
 }
 
-void MyOriginalEvent::Smoothing(const double SmoothingTime_ns)
-{
-	for (size_t i=0; i<7;++i)
-		if (fUsedChans & (0x1<<i))
-			GetChannel(i).Smoothing(*this,SmoothingTime_ns);
+void MyOriginalEvent::Smoothing(const double SmoothingTime_ns) {
+  for (size_t i = 0; i < 7; ++i)
+    if (fUsedChans & (0x1 << i))
+      GetChannel(i).Smoothing(*this, SmoothingTime_ns);
 }
 
-void MyOriginalEvent::RemoveNoiseLongPulse(const int maxLength)
-{
-		for (size_t i=0; i<7;++i)
-		if (fUsedChans & (0x1<<i))
-			GetChannel(i).RemoveNoiseLongPulse(*this,maxLength);
+void MyOriginalEvent::RemoveNoiseLongPulse(const int maxLength) {
+  for (size_t i = 0; i < 7; ++i)
+    if (fUsedChans & (0x1 << i))
+      GetChannel(i).RemoveNoiseLongPulse(*this, maxLength);
 }
 
 //------------------------------------------------------------------------------------------------------------------------

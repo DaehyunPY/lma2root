@@ -5,20 +5,19 @@
 #include "MyEvent/MySortedEvent/MyDetektor/MyDetektor.h"
 using std::string;
 
-class BinaryDump
-{
-public:
-	BinaryDump() :hitsFile(MyArchive::ArWriting) {};
-	BinaryDump(const string fileName);
-	virtual ~BinaryDump();
+class BinaryDump {
+ public:
+  BinaryDump() : hitsFile(MyArchive::ArWriting) {};
+  BinaryDump(const string fileName);
+  virtual ~BinaryDump();
 
-	void OpenFile(const string fileName);
-	void WriteData(MySortedEvent&, unsigned int);
-	void FlushBinFile();
+  void OpenFile(const string fileName);
+  void WriteData(MySortedEvent &, unsigned int);
+  void FlushBinFile();
 
-private:
-	//export files
-	MyArchive			hitsFile;
-	//std::fstream		expTxt;
+ private:
+  //export files
+  MyArchive hitsFile;
+  //std::fstream		expTxt;
 };
 

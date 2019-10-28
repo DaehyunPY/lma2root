@@ -7,6 +7,6 @@ class MyLayerProperty;
 class MySignalAnalyzedEvent;
 class MyPeak;
 
-void extractTimes(MySignalAnalyzedEvent&, const MyLayerProperty&, std::vector<MyPeak*>&, std::vector<double>&);
+void extractTimes(MySignalAnalyzedEvent &, const MyLayerProperty &, std::vector<MyPeak *> &, std::vector<double> &);
 
 #endif
