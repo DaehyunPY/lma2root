@@ -218,10 +218,10 @@ void MyDetektorHitSorterAchimQuad::FillHistosAfterShift(const MyDetektor &d, MyH
 		rm.fill2d(fHiOff+kSumVsVShift,v1-v2,v1+v2-2.*mcp);
 
 	//draw shifted and corrected Sums//
-	if (u1d.size() || u2d.size() || mcpd.size())
-		rm.fill2d(fHiOff+kSumVsUShiftCorr,u1-u2,fAs->correct_sum(u1,u2,0)-2.*mcp);
-	if (v1d.size() || v2d.size() || mcpd.size())
-		rm.fill2d(fHiOff+kSumVsVShiftCorr,v1-v2,fAs->correct_sum(v1,v2,1)-2.*mcp);
+//	if (u1d.size() || u2d.size() || mcpd.size())
+//		rm.fill2d(fHiOff+kSumVsUShiftCorr,u1-u2,fAs->correct_sum(u1,u2,0)-2.*mcp);
+//	if (v1d.size() || v2d.size() || mcpd.size())
+//		rm.fill2d(fHiOff+kSumVsVShiftCorr,v1-v2,fAs->correct_sum(v1,v2,1)-2.*mcp);
 
 	//--calc Pos from first hits--//
 	const double u_ns = u1-u2;

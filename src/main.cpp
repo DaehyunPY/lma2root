@@ -112,16 +112,16 @@ int main(int argc, char* argv[])
 			verbose=true;
 	}
 #ifdef _DEBUG
-	//if we are building a Debug version, we should always be verbose
-	//we also want the user to be able to attach a debugger to the process
-	////--wait for keystroke--//
-	std::cout << "This is the Debug Version of this Program!!" <<std::endl;
-	std::cout << "If you want you can now attach the Debugger to this process."<<std::endl;
-	std::cout << "To continue this program press any key"<<std::endl;
-	while (!_kbhit()){}
-	char ch;
-	while(_kbhit()) char ch = _getch();
-	verbose = true;
+	// //if we are building a Debug version, we should always be verbose
+	// //we also want the user to be able to attach a debugger to the process
+	// ////--wait for keystroke--//
+	// std::cout << "This is the Debug Version of this Program!!" <<std::endl;
+	// std::cout << "If you want you can now attach the Debugger to this process."<<std::endl;
+	// std::cout << "To continue this program press any key"<<std::endl;
+	// while (!_kbhit()){}
+	// char ch;
+	// while(_kbhit()) char ch = _getch();
+	// verbose = true;
 #endif 
 
 	//now run program//

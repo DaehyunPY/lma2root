@@ -1,7 +1,8 @@
 #ifndef __MyFileProcessor_H_
 #define __MyFileProcessor_H_
 
-#include <conio.h>
+// #include <conio.h>
+#include <curses.h>
 #include <fstream>
 
 #include "../MyEvent/MyOriginalEvent/MyOriginalEvent.h"

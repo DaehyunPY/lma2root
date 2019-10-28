@@ -12,6 +12,8 @@
 #include "../MyEvent/MySignalAnalyzedEvent/MyPeak/MyPeak.h"
 
 
+//_________________________________helper function that does a linear Regression_____________________________________________________
+void linearRegression(int nbrPoints, const double x[], const double y[], double &m, double &c);
 
 //______________________________fwhm________________________________________________________________________________________
 template <typename T>
@@ -201,8 +203,6 @@ void maximum(const MyOriginalEvent &oe, const MyOriginalChannel &oc, MyPeak &p)
 }
 
 
-//_________________________________helper function that does a linear Regression_____________________________________________________
-void linearRegression(int nbrPoints, const double x[], const double y[], double &m, double &c);
 //_________________________________helper function that does a linear Regression_____________________________________________________
 void gewichtetlinearRegression(const int nbrPoints, const double x[], const double y[], const double correctX, double &m, double &c);
 //_________________________________create Newton Polynomial__________________________________________________________________________

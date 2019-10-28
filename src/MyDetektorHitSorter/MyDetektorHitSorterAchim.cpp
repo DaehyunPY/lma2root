@@ -103,7 +103,8 @@ void MyDetektorHitSorterAchim::InitAchimSorter(const MyDetektorInfo &di)
 		fAs->sum_corrector_W->set_point(di.GetWCorrPos(i),di.GetWCorrCorr(i));
 
 	//init() must be called only once
-	int error_code = fAs->init(); 
+//	int error_code = fAs->init();
+    int error_code = 0;
 	if (error_code != 0)
 	{
 		char error_text[500];
@@ -114,7 +115,7 @@ void MyDetektorHitSorterAchim::InitAchimSorter(const MyDetektorInfo &di)
 	else
 	{
 		fAlreadyInitialized=true;
-		fSwc = sum_walk_calibration_class::new_sum_walk_calibration_class(fAs,49);
-		fSfc = new scalefactors_calibration_class(true,fAs->max_runtime*0.78,fAs->fu,fAs->fv,fAs->fw);
+//		fSwc = sum_walk_calibration_class::new_sum_walk_calibration_class(fAs,49);
+//		fSfc = new scalefactors_calibration_class(true,fAs->max_runtime*0.78,fAs->fu,fAs->fv,fAs->fw);
 	}
 }

@@ -5,7 +5,9 @@
 #include <TStyle.h>
 #include <TGClient.h>
 #include <iostream>
-#include <conio.h>
+// #include <conio.h>
+#include <curses.h>
+#include <termios.h>
 
 #include "MyEventViewer.h"
 #include "../MySignalAnalyzer/baselineCorrection.h"
@@ -233,16 +235,29 @@ void MyRawEventViewer::showEventImpl(const MyOriginalEvent &oe, const MySignalAn
 		gPad->Update();
 		std::cout << "Tag:" << oe.GetEventID() << std::endl;
 		//--wait for keystroke--//
-		while (!_kbhit())
-		{
-			gSystem->Sleep(50);
-			gSystem->ProcessEvents();
+		while(true) {
+			switch(getchar()) {
+				case 'p':
+					c->Print("Event.png");
+					break;
+				case 'u':
+					drawPos = !drawPos;
+					break;
+				default:
+					gSystem->Sleep(50);
+					gSystem->ProcessEvents();
+			}
 		}
-		char ch;
-		while(_kbhit()) ch = _getch();
-		if (ch == 'p')c->Print("Event.png");
-		else if (ch == 'u')drawPos = (drawPos) ? false:true;
-		else break;
+		// while (!_kbhit())
+		// {
+		// 	gSystem->Sleep(50);
+		// 	gSystem->ProcessEvents();
+		// }
+		// char ch;
+		// while(_kbhit()) ch = _getch();
+		// if (ch == 'p')c->Print("Event.png");
+		// else if (ch == 'u')drawPos = (drawPos) ? false:true;
+		// else break;
 	}
 }
 
@@ -374,16 +389,29 @@ void MyRawEventViewer::showEventImplBLCorr(const MyOriginalEvent &oe, const MySi
 		gPad->Update();
 
 		//--wait for keystroke--//
-		while (!_kbhit())
-		{
-			gSystem->Sleep(50);
-			gSystem->ProcessEvents();
+		while(true) {
+			switch(getchar()) {
+				case 'p':
+					c->Print("Event.png");
+					break;
+				case 'u':
+					drawPos = !drawPos;
+					break;
+				default:
+					gSystem->Sleep(50);
+					gSystem->ProcessEvents();
+			}
 		}
-		char ch;
-		while(_kbhit()) ch = _getch();
-		if (ch == 'p')c->Print("Event.png");
-		else if (ch == 'u')drawPos = (drawPos) ? false:true;
-		else break;
+		// while (!_kbhit())
+		// {
+		// 	gSystem->Sleep(50);
+		// 	gSystem->ProcessEvents();
+		// }
+		// char ch;
+		// while(_kbhit()) ch = _getch();
+		// if (ch == 'p')c->Print("Event.png");
+		// else if (ch == 'u')drawPos = (drawPos) ? false:true;
+		// else break;
 	}
 }
 
@@ -645,31 +673,86 @@ void MyCFDAdjuster::adjustCfdImpl(const MyOriginalEvent &oe, MySignalAnalyzedEve
 			gPad->Update();
 
 			//--wait for keystroke--//
-			while (!_kbhit())
-			{
-				gSystem->Sleep(50);
-				gSystem->ProcessEvents();
+			while(true) {
+				switch(getchar()) {
+					case 'y':
+						cs.SetFraction(cs.GetFraction()- 0.01);
+						break;
+					case 'a':
+						cs.SetFraction(cs.GetFraction()+ 0.01);
+						break;
+					case 'x':
+						cs.SetDelay(cs.GetDelay() - 1);
+						break;
+					case 's':
+						cs.SetDelay(cs.GetDelay() + 1);
+						break;
+					case 'c':
+						cs.SetThreshold(cs.GetThreshold() - 1);
+						break;
+					case 'd':
+						cs.SetThreshold(cs.GetThreshold() + 1);
+						break;
+					case 'v':
+						cs.SetWalk(cs.GetWalk() - 1);
+						break;
+					case 'f':
+						cs.SetWalk(cs.GetWalk() + 1);
+						break;
+					case 'b':
+						xRange -= 10;
+						break;
+					case 'g':
+						xRange += 10;
+						break;
+					case 'q':
+						{++ChNbr ; BreakHere = true; cont = false;}
+						break;
+					case 'w':
+						{++SecNbr; BreakHere = true; cont = false;}
+						break;
+					case 'i':
+						drawWalk = (drawWalk) ? false:true;
+						break;
+					case 'o':
+						drawThresh = (drawThresh) ? false:true;
+						break;
+					case 'u':
+						drawPos = (drawPos) ? false:true;
+						break;
+					case 'p':
+						Pol = (Pol==kPositive) ? kNegative:kPositive;
+						break;
+					default:
+						gSystem->Sleep(50);
+						gSystem->ProcessEvents();
+				}
 			}
-			//--act according to the keystroke that was made--//
-			char ch; 
-			ch = _getch();
-			if		(ch == 'y')cs.SetFraction(cs.GetFraction()- 0.01);
-			else if (ch == 'a')cs.SetFraction(cs.GetFraction()+ 0.01);
-			else if (ch == 'x')cs.SetDelay(cs.GetDelay() - 1);
-			else if (ch == 's')cs.SetDelay(cs.GetDelay() + 1);
-			else if (ch == 'c')cs.SetThreshold(cs.GetThreshold() - 1);
-			else if (ch == 'd')cs.SetThreshold(cs.GetThreshold() + 1);
-			else if (ch == 'v')cs.SetWalk(cs.GetWalk() - 1);
-			else if (ch == 'f')cs.SetWalk(cs.GetWalk() + 1);
-			else if (ch == 'b')xRange -= 10;
-			else if (ch == 'g')xRange += 10;
-			else if (ch == 'q'){++ChNbr ; BreakHere = true; cont = false;}
-			else if (ch == 'w'){++SecNbr; BreakHere = true; cont = false;}
-			else if (ch == 'i')drawWalk = (drawWalk) ? false:true;
-			else if (ch == 'o')drawThresh = (drawThresh) ? false:true;
-			else if (ch == 'u')drawPos = (drawPos) ? false:true;
-			else if (ch == 'p')Pol = (Pol==kPositive) ? kNegative:kPositive;
-			else cont = false;
+			// while (!_kbhit())
+			// {
+			// 	gSystem->Sleep(50);
+			// 	gSystem->ProcessEvents();
+			// }
+			// //--act according to the keystroke that was made--//
+			// char ch; 
+			// ch = _getch();
+			// if		(ch == 'y')cs.SetFraction(cs.GetFraction()- 0.01);
+			// else if (ch == 'a')cs.SetFraction(cs.GetFraction()+ 0.01);
+			// else if (ch == 'x')cs.SetDelay(cs.GetDelay() - 1);
+			// else if (ch == 's')cs.SetDelay(cs.GetDelay() + 1);
+			// else if (ch == 'c')cs.SetThreshold(cs.GetThreshold() - 1);
+			// else if (ch == 'd')cs.SetThreshold(cs.GetThreshold() + 1);
+			// else if (ch == 'v')cs.SetWalk(cs.GetWalk() - 1);
+			// else if (ch == 'f')cs.SetWalk(cs.GetWalk() + 1);
+			// else if (ch == 'b')xRange -= 10;
+			// else if (ch == 'g')xRange += 10;
+			// else if (ch == 'q'){++ChNbr ; BreakHere = true; cont = false;}
+			// else if (ch == 'w'){++SecNbr; BreakHere = true; cont = false;}
+			// else if (ch == 'i')drawWalk = (drawWalk) ? false:true;
+			// else if (ch == 'o')drawThresh = (drawThresh) ? false:true;
+			// else if (ch == 'u')drawPos = (drawPos) ? false:true;
+			// else if (ch == 'p')Pol = (Pol==kPositive) ? kNegative:kPositive;
+			// else cont = false;
 
 			//if we want to draw the same event another time//
 			if (cont)

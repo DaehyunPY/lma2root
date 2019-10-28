@@ -304,12 +304,12 @@ void MyDetektorHitSorterAchimHex::FillHistosAfterShift(const MyDetektor &d, MyHi
 		rm.fill2d(fHiOff+kSumVsWShift,w1-w2,w1+w2-2.*mcp);
 
 	//draw shifted and corrected Sums//
-	if (u1d.size() || u2d.size() || mcpd.size())
-		rm.fill2d(fHiOff+kSumVsUShiftCorr,u1-u2,fAs->correct_sum(u1,u2,0)-2.*mcp);
-	if (v1d.size() || v2d.size() || mcpd.size())
-		rm.fill2d(fHiOff+kSumVsVShiftCorr,v1-v2,fAs->correct_sum(v1,v2,1)-2.*mcp);
-	if (w1d.size() || w2d.size() || mcpd.size())
-		rm.fill2d(fHiOff+kSumVsWShiftCorr,w1-w2,fAs->correct_sum(w1,w2,2)-2.*mcp);
+//	if (u1d.size() || u2d.size() || mcpd.size())
+//		rm.fill2d(fHiOff+kSumVsUShiftCorr,u1-u2,fAs->correct_sum(u1,u2,0)-2.*mcp);
+//	if (v1d.size() || v2d.size() || mcpd.size())
+//		rm.fill2d(fHiOff+kSumVsVShiftCorr,v1-v2,fAs->correct_sum(v1,v2,1)-2.*mcp);
+//	if (w1d.size() || w2d.size() || mcpd.size())
+//		rm.fill2d(fHiOff+kSumVsWShiftCorr,w1-w2,fAs->correct_sum(w1,w2,2)-2.*mcp);
 
 	//--calc Pos and Timesum from shifted first hits--//
 	const double u_ns = u1-u2;
