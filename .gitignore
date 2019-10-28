@@ -1,3 +1,4 @@
+.idea/
 .vs/
 *.exe
 *.exp
@@ -5,6 +6,8 @@
 *Dict.*
 Binaries/
 build/
+cmake-build-*/
 Debug/
+demo/
 Projekt/
 Release/
