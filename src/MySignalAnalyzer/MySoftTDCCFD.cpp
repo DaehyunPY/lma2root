@@ -127,13 +127,13 @@ void cfd(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vector<doub
 
 					//--make a linear regression to find the slope of the leading edge--//
 					double mslope,cslope;
-					const double xslope[3] = {i-delay,i+1-delay,i+2-delay};
+					const double xslope[3] = {(double)(i - delay), i + 1. - delay, i + 2. - delay};
 					const double yslope[3] = {fxd,fxd_1,fxd_2};
 					linearRegression(3,xslope,yslope,mslope,cslope);
 
 					//--find x with a cubic polynomial interpolation between four points--//
 					//--do this with the Newtons interpolation Polynomial--//
-					const double x[4] = {i-1,i,i+1,i+2};				//x vector
+					const double x[4] = {i - 1., (double)i, i + 1., i + 2.};  // x vector
 					const double y[4] = {fsx_m1,fsx,fsx_1,fsx_2};		//y vector
 					double coeff[4] = {0,0,0,0};				//Newton coeff vector
 					createNewtonPolynomial(x,y,coeff);
@@ -318,13 +318,13 @@ void cfdBLCorr(const MyOriginalEvent &oe, MySignalAnalyzedEvent &sae, std::vecto
 
 					//--make a linear regression to find the slope of the leading edge--//
 					double mslope,cslope;
-					const double xslope[3] = {i-delay,i+1-delay,i+2-delay};
+					const double xslope[3] = {(double)(i - delay), i + 1. - delay, i + 2. - delay};
 					const double yslope[3] = {fxd,fxd_1,fxd_2};
 					linearRegression(3,xslope,yslope,mslope,cslope);
 
 					//--find x with a cubic polynomial interpolation between four points--//
 					//--do this with the Newtons interpolation Polynomial--//
-					const double x[4] = {i-1,i,i+1,i+2};				//x vector
+					const double x[4] = {i - 1., (double)i, i + 1., i + 2.};  // x vector
 					const double y[4] = {fsx_m1,fsx,fsx_1,fsx_2};		//y vector
 					double coeff[4] = {0,0,0,0};				//Newton coeff vector
 					createNewtonPolynomial(x,y,coeff);
