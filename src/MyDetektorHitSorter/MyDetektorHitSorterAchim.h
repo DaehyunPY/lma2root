@@ -1,11 +1,7 @@
 #ifndef __MyDetektorHitSorterAchim_H_
 #define __MyDetektorHitSorterAchim_H_
 
-#ifdef _ACHIMSOURCE
-#include "../AchimsRoutineSources/resort64c.h"
-#else
-#include "./AchimsRoutine/resort64c.h"
-#endif
+#include "resort64c.h"
 
 class MyDetektorInfo;
 
