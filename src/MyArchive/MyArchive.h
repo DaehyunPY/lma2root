@@ -14,7 +14,10 @@ public:
 	MyArchive(const char * FiName, bool w):isWriting(w)	{newFile(FiName);}
 	~MyArchive()										{if (file.is_open()) file.close();}
 
-	long getFileSize()									{return isWriting?file.tellg():filesize;}
+	long getFileSize() {
+        if (isWriting) return file.tellg();
+        else return filesize;
+    }
 	bool EndOfFile()									{return (filesize <= file.tellg());}
 	bool IsWriting()									{return isWriting;}
 	bool IsReading()									{return !isWriting;}

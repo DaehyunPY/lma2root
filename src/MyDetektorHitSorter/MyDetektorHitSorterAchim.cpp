@@ -85,7 +85,10 @@ void MyDetektorHitSorterAchim::InitAchimSorter(const MyDetektorInfo &di)
 	fAs->fu									= di.GetSfU();
 	fAs->fv									= di.GetSfV();
 	fAs->fw									= di.GetSfW();
-	fAs->max_runtime						= di.GetRunTime();
+	// fAs->max_runtime						= di.GetRunTime();
+    fAs->runtime_u                          = di.GetRunTime();
+    fAs->runtime_v                          = di.GetRunTime();
+    fAs->runtime_w                          = di.GetRunTime();
 	fAs->dead_time_anode					= di.GetDeadTimeAnode();
 	fAs->dead_time_mcp						= di.GetDeadTimeMCP();
 	fAs->MCP_radius							= di.GetMCPRadius();
@@ -94,16 +97,19 @@ void MyDetektorHitSorterAchim::InitAchimSorter(const MyDetektorInfo &di)
 
 	//set the sum walk correction points, Achims Routine will internaly find out how many we gave it//
 	for (int i=0;i<di.GetNbrSumUCorrPoints();++i)
-		fAs->sum_corrector_U->set_point(di.GetUCorrPos(i),di.GetUCorrCorr(i));
+		// fAs->sum_corrector_U->set_point(di.GetUCorrPos(i),di.GetUCorrCorr(i));
+        fAs->signal_corrector->sum_corrector_U->set_point(di.GetUCorrPos(i),di.GetUCorrCorr(i));
 
 	for (int i=0;i<di.GetNbrSumVCorrPoints();++i)
-		fAs->sum_corrector_V->set_point(di.GetVCorrPos(i),di.GetVCorrCorr(i));
+		// fAs->sum_corrector_V->set_point(di.GetVCorrPos(i),di.GetVCorrCorr(i));
+        fAs->signal_corrector->sum_corrector_V->set_point(di.GetVCorrPos(i),di.GetVCorrCorr(i));
 
 	for (int i=0;i<di.GetNbrSumWCorrPoints();++i)
-		fAs->sum_corrector_W->set_point(di.GetWCorrPos(i),di.GetWCorrCorr(i));
+		// fAs->sum_corrector_W->set_point(di.GetWCorrPos(i),di.GetWCorrCorr(i));
+        fAs->signal_corrector->sum_corrector_W->set_point(di.GetWCorrPos(i),di.GetWCorrCorr(i));
 
 	//init() must be called only once
-	int error_code = fAs->init(); 
+	int error_code = fAs->init_after_setting_parameters(); 
 	if (error_code != 0)
 	{
 		char error_text[500];
@@ -114,7 +120,10 @@ void MyDetektorHitSorterAchim::InitAchimSorter(const MyDetektorInfo &di)
 	else
 	{
 		fAlreadyInitialized=true;
-		fSwc = sum_walk_calibration_class::new_sum_walk_calibration_class(fAs,49);
-		fSfc = new scalefactors_calibration_class(true,fAs->max_runtime*0.78,fAs->fu,fAs->fv,fAs->fw);
+		fSwc = new sum_walk_calibration_class(fAs, 49);
+        // fSfc = new scalefactors_calibration_class(true,fAs->max_runtime*0.78,fAs->fu,fAs->fv,fAs->fw);
+		fSfc = new scalefactors_calibration_class(
+			true, fAs->runtime_u, fAs->runtime_v, fAs->runtime_w, 0.78,
+			fAs->fu, fAs->fv, fAs->fw);
 	}
 }

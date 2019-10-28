@@ -117,10 +117,10 @@ int main(int argc, char* argv[])
 	////--wait for keystroke--//
 	std::cout << "This is the Debug Version of this Program!!" <<std::endl;
 	std::cout << "If you want you can now attach the Debugger to this process."<<std::endl;
-	std::cout << "To continue this program press any key"<<std::endl;
-	while (!_kbhit()){}
-	char ch;
-	while(_kbhit()) char ch = _getch();
+	// std::cout << "To continue this program press any key"<<std::endl;
+	// while(!_kbhit()) {}
+	// char ch;
+	// while(_kbhit()) char ch = _getch();
 	verbose = true;
 #endif 
 

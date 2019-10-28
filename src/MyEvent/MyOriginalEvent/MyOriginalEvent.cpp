@@ -12,10 +12,10 @@
 void MyOriginalEvent::Serialize(MyArchive &ar)
 {
 	//--read the event values from the archive--//
-	ar >> (long)fEventID;				//event time stamp
-	//std::cerr<<"EventID:"<<EventID<<std::endl;
-	ar >> (double)fHorpos;				//horpos from acqiris
-	//std::cerr<<"horpos:"<<horpos<<std::endl;
+	ar >> (long &)fEventID;  // Event time stamp
+	// std::cerr << "EventID: " << EventID << std::endl;
+	ar >> (double &)fHorpos;  // Horpos from acqiris
+	// std::cerr << "horpos: " << horpos << std::endl;
 
 	//--if the channel was recorded serialize it
 	for (size_t i=0; i<fChannels.size();++i)

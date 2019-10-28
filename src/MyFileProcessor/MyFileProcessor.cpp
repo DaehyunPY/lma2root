@@ -249,15 +249,13 @@ bool MyFileProcessor::ProcessFile(const TString &fiName, MySettings &set, bool i
 
 		//--check wether q was pressed--//
 		//if it was pressed then end here//
-		if (_kbhit())
-		{
-			char c = _getch();
-			if (c == 'q')
-			{
-				endnow=true;
-				break;
-			}
-		}
+		// if(_kbhit()) {
+		//     char c = _getch();
+		//     if(c == 'q') {
+		//         endnow=true;
+		//         break;
+		//     }
+		// }
 	}
 	//Last EventID//
 	long endEventID = fOE.GetEventID();
